@@ -1,0 +1,64 @@
+<!doctype html>
+<!--==this is first test for github welcome evryone :D ====-->
+
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+       
+        <title>test Charity</title>
+       
+    </head>
+<body>
+        		<input type="file" id="f" name=""   onchange="onFileSelected(event)">
+			
+			<img id="out"></img>
+			<input type="text" id='text' size="5000">
+
+
+
+
+
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+	<script language="javascript" >
+		
+			
+
+   
+function onFileSelected(event) {
+ var selectedFile = event.target.files[0];
+  
+  var reader = new FileReader();
+
+  //var imgtag = document.getElementById("out");
+
+
+  reader.onload = function(event) {
+   // imgtag.src = event.target.result;
+    console.log(event.target.result);
+   var l=event.target.result;
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+     alert("yes");}
+     	else 
+     		{alert("verifier la cnx");}
+
+  };
+  
+xhttp.open("POST", "http:/localhost/test.php",true);
+xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xhttp.send("l="+l);
+
+  
+
+
+
+  };
+
+ reader.readAsDataURL(selectedFile);
+  
+}
+	</script>
+</body>
+</html>
